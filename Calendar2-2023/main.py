@@ -45,6 +45,7 @@ if __name__ == '__main__':
 
         found = False
 
+        #split by the semicolon 
         for i in splitColon:
             print(i)
             cubeReveal = splitter(i)
@@ -54,6 +55,8 @@ if __name__ == '__main__':
                 number, color = extract_number_and_color(j)
                 if number is not None:
                     print(str(number) + " AND " + color)
+
+                    #Below checks all constraints (for each color, and if found, then break out of the line and continuie)
                     if ((number > 12) & (color == "red")):
                         print("LARGER")
                         found = True
@@ -67,7 +70,7 @@ if __name__ == '__main__':
                         found = True
                         break
 
-            if found:
+            if found: #if number/color was found, then break out of BOTH for loops, and continue
                 found = False
                 print("THE INDEX IS "+ str(gameindex))
                 count = count + gameindex
@@ -75,8 +78,7 @@ if __name__ == '__main__':
 
 
 
-        #print(splitColon[0])
         gameindex = gameindex + 1
     final = 5050 - count
-    print(count)
-    print(final)
+    print(count) #prints all the counts for when the index DOESNT fit the criteria
+    print(final) #prints all the times when the index DOES fit the criteria (just 100 summation minus what doesnt work)
